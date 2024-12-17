@@ -70,6 +70,12 @@ public class TesterRunigram {
             }
         }
 
+        if (testName.equals("blend1")) {
+            // Testing Runigram.blend
+            System.out.println("Testing Runigram.blend...");
+            testBlend1();
+        }
+
 
         // Color[][] img = Runigram.scaled(safeRead("eyes.ppm"), 241, 209);
         // Color[][] img = Runigram.blend(safeRead("escher.ppm"), safeRead("eyes.ppm"), 0.21);
@@ -185,6 +191,17 @@ public class TesterRunigram {
             return false;
         }
         return res1 && compareImages(flipped, res);
+    }
+
+    public static void testBlend1(){
+        Color c1 = new Color(100, 40, 100);
+        Color c2 = new Color(200, 20, 40);
+        Color c3 = Runigram.blend(c1, c2, 0.25);
+        System.out.print("(");
+		System.out.printf("%3s,", c3.getRed());   // Prints the red c3omponent
+		System.out.printf("%3s,", c3.getGreen()); // Prints the green c3omponent
+        System.out.printf("%3s",  c3.getBlue());  // Prints the blue component
+        System.out.print(")  ");
     }
 
     /**
