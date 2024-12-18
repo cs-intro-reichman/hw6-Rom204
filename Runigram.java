@@ -190,7 +190,6 @@ public class Runigram {
 			for (int j = 0; j < numCols; j++){
 				Color c1 = image1[i][j];
 				Color c2 = image2[i][j];
-				System.out.println(c2);
 				Color blendedPixel = blend(c1, c2, alpha);
 				blendedImage[i][j] = blendedPixel;
 			}
