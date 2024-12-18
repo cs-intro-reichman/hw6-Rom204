@@ -147,10 +147,12 @@ public class Runigram {
 		int numRows = image.length;
 		int numCols = image[0].length;
 		Color[][] scaledImage = new Color[height][width];
+		double fixedHeight = (numRows / (double) height);
+		double fixedWidth = (numCols / (double) width);
 
 		for (int i = 0; i < height; i++){
 			for (int j = 0; j < width; j++){
-				scaledImage[i][j] = image[i * numRows / height][j * numCols / width];
+				scaledImage[i][j] = image[(int)(i * fixedHeight)][(int)(j * fixedWidth)];
 			}
 		}
 		return scaledImage;
@@ -211,7 +213,7 @@ public class Runigram {
 		int targetCols = target[0].length;
 
 		if (sourceRows != targetRows || sourceCols != targetCols) {
-			target = scaled(target, sourceRows, sourceCols);
+			target = scaled(target, sourceCols, sourceRows);
 		}
 
 		for (int i = 0; i < n; i++){
